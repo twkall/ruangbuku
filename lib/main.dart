@@ -303,17 +303,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                   filled: true,
                                   contentPadding: EdgeInsets.all(8.0),
                                   focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(32.0),
                                     borderSide: BorderSide(
                                       color: Colors.white,
                                       width: 2.0,
                                     ),
                                   ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(32.0),
                                     borderSide: BorderSide(
                                       color: Colors.white,
                                       width: 2.0,
+                                    ),
+                                  ),
+                                  prefixIcon: Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: Icon(
+                                      Icons.person,
+                                      color: Color(0xff01baef),
+                                      size: 16.0,
                                     ),
                                   ),
                                 ),
@@ -345,17 +353,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                   filled: true,
                                   contentPadding: EdgeInsets.all(8.0),
                                   focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(32.0),
                                     borderSide: BorderSide(
                                       color: Colors.white,
                                       width: 2.0,
                                     ),
                                   ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(32.0),
                                     borderSide: BorderSide(
                                       color: Colors.white,
                                       width: 2.0,
+                                    ),
+                                  ),
+                                  prefixIcon: Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: Icon(
+                                      Icons.lock,
+                                      color: Color(0xff01baef),
+                                      size: 16.0,
                                     ),
                                   ),
                                 ),
