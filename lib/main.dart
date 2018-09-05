@@ -186,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
   //validation function
   String _validateEmail(String value){
     if(!Validate.isEmail(value)){
-      return "Email salah";
+      return "Email salah coy";
     }
 
     return null;
