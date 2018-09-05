@@ -184,20 +184,36 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _keyLogin = GlobalKey<FormState>();
 
   //validation function
-  String _validateEmail(String value){
-    if(!Validate.isEmail(value)){
-      return "Email salah coy";
+  String _validateEmail(String value) {
+    try {
+      Validate.isEmail(value);
+    } catch (e) {
+      return "Format Email Salah";
     }
 
     return null;
   }
 
-  String _validatePass(String value){
-    if(value.length < 8){
+  String _validatePassword(String value) {
+    if (value.length < 8) {
       return "Password kurang dari 8 karakter";
     }
 
     return null;
+  }
+
+  //login data to validation
+  _LoginData _data = new _LoginData();
+
+  //validation for submitting
+  void submit() {
+    if (this._keyLogin.currentState.validate()) {
+      _keyLogin.currentState.save();//save the form values
+
+      print('Printing the login data.');
+      print('Email: ${_data.email}');
+      print('Password: ${_data.password}');
+    }
   }
 
   @override
@@ -301,6 +317,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
+                                validator: this._validateEmail,
+                                onSaved: (String value) {
+                                  this._data.email = value;
+                                },
                               ),
                             ),
                             Container(
@@ -339,6 +359,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
+                                validator: this._validatePassword,
+                                onSaved: (String value) {
+                                  this._data.password = value;
+                                },
                               ),
                             ),
                             Container(
@@ -347,7 +371,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: Text("Masuk"),
                                 textColor: Colors.white,
                                 color: Color(0xff01baef),
-                                onPressed: () => print("Pressed Blue"),
+                                onPressed: () => this.submit(),
                               ),
                             ),
                           ],
