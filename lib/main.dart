@@ -44,17 +44,53 @@ void main() => runApp(
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
                 color: Color(0xff01baef),
-              ))),
+              ),
+            ),
+          ),
         ),
         home: HomeScreen(),
       ),
     );
+
+class ColorLibs {
+  static Color buttonGreen() {
+    return Color(0xff01ef39);
+  }
+
+  static Color buttonBlue() {
+    return Color(0xff01baef);
+  }
+
+  static Color buttonRed() {
+    return Color(0xffff7972);
+  }
+
+  static Color buttonOrange() {
+    return Color(0xfff9ac23);
+  }
+
+  static Color primary() {
+    return Color(0xff01baef);
+  }
+
+  static Color secondary() {
+    return Color(0xfff9ac23);
+  }
+
+  static Color error() {
+    return Color(0xffb31919);
+  }
+
+  static Color primaryText() {
+    return Color(0xff757575);
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -208,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
   //validation for submitting
   void submit() {
     if (this._keyLogin.currentState.validate()) {
-      _keyLogin.currentState.save();//save the form values
+      _keyLogin.currentState.save(); //save the form values
 
       print('Printing the login data.');
       print('Email: ${_data.email}');
@@ -363,6 +399,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(32.0),
                                     borderSide: BorderSide(
                                       color: Colors.white,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(32.0),
+                                    borderSide: BorderSide(
+                                      color: ColorLibs.error(),
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(32.0),
+                                    borderSide: BorderSide(
+                                      style: BorderStyle.solid,
+                                      color: Colors.red,
                                       width: 2.0,
                                     ),
                                   ),
